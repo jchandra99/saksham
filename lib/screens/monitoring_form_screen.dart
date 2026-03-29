@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../providers/form_provider.dart';
 import '../screens/house_form_screen.dart';
 import '../widgets/section_header.dart';
 import '../widgets/text_input_field.dart';
 import '../constants/app_colors.dart';
-import '../models/monitoring_form_model.dart';
 
 class MonitoringFormScreen extends StatefulWidget {
   const MonitoringFormScreen({super.key});
@@ -96,7 +96,7 @@ class _MonitoringFormScreenState extends State<MonitoringFormScreen> {
                   const SizedBox(height: 12),
                   TextInputField(label: 'District - जनपद', value: session.district, onChanged: (value) { session.district = value; setState(() {}); }),
                   const SizedBox(height: 12),
-                  _buildDropdown('Institution - संस्था', session.institution, ['स्वास्थ्य विभाग', 'यूनीसेफ', 'पाथ', 'डब्ल्यूएचओ', 'अन्य विभाग'], (value) { session.institution = value; setState(() {}); }),
+                  _buildDropdown('Institution - संस्था', session.institution, ['स्वास्थ्य विभाग', 'यूनीसेफ', 'पाथ', 'डब्ल्यूएचओ', 'अन्य विभाग'], (value) { if (value != null) { session.institution = value; setState(() {}); } }),
                   const SizedBox(height: 12),
                   _buildDateField('Monitoring Date - मॉनीटरिंग का दिनांक', session.monitoringDate, (value) { session.monitoringDate = value; setState(() {}); }),
                   const SizedBox(height: 12),
@@ -149,7 +149,7 @@ class _MonitoringFormScreenState extends State<MonitoringFormScreen> {
     );
   }
 
-  Widget _buildDropdown(String label, String currentValue, List<String> options, ValueChanged<String> onChanged) {
+  Widget _buildDropdown(String label, String currentValue, List<String> options, ValueChanged<String?> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

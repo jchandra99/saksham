@@ -15,8 +15,8 @@ class AppTheme {
       ),
       textTheme: GoogleFonts.notoSansDevanagariTextTheme(
         const TextTheme(
-          headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          bodyText2: TextStyle(fontSize: 14),
+          headlineSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 14),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(

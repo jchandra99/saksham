@@ -58,8 +58,6 @@ class _PdfPreviewScreenState extends State<PdfPreviewScreen> {
             canChangeOrientation: false,
             canChangePageFormat: true,
             initialPageFormat: PdfPageFormat.a4,
-            loading: const Center(child: CircularProgressIndicator()),
-            errorWidget: (context, error, stackTrace) => Center(child: Text('Unable to generate PDF: $error')),
           );
         },
       ),
